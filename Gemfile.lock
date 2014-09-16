@@ -97,6 +97,7 @@ GEM
     ice_nine (0.11.0)
     json (1.8.1)
     json_pure (1.8.1)
+    kgio (2.9.2)
     minitest (5.4.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
@@ -108,6 +109,7 @@ GEM
       rack (>= 1.0.0)
     rack-protection (1.5.3)
       rack
+    raindrops (0.13.0)
     randexp (0.1.7)
     sexp_processor (3.2.0)
     sinatra (1.4.5)
@@ -125,6 +127,10 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     uuidtools (2.1.5)
     virtus (1.0.3)
       axiom-types (~> 0.1)
@@ -146,4 +152,5 @@ DEPENDENCIES
   sinatra
   sinatra-flash
   thin
+  unicorn
   warden
