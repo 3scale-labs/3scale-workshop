@@ -1,9 +1,11 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem "sinatra"
-gem "thin"
-gem "data_mapper",          "~> 1.2.0"
-gem "dm-sqlite-adapter",    :group => :development
-gem "dm-mysql-adapter",     :group => :development
-gem "dm-is-authenticatable"
-gem "dm-sweatshop"
+ruby '2.0.0'
+
+gem 'sinatra'
+gem 'thin'
+gem 'data_mapper'
+gem 'dm-sweatshop'
+gem 'dm-postgres-adapter'
+gem 'pg'
+gem 'grape'
