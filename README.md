@@ -1,10 +1,14 @@
 user_goals
 ==========
 
-This is a prototype schema for a user / goals system. For demonstration purposes, this uses Sinatra to expose the various underlying data models via JSON routes.
+This is a sample api based on a prototype schema for a user / goals system by Ben Darlow. It has been modified to run on Heroku and use Grape for the API framework. 
 
-Setup
------
+Deployment
+----------
+
+To deploy to Heroku, simply clone this repo and run `heroku create` on the folder.
+
+This will create a heroku application which you can 
 
 * Create a local MySQL database called user_goals_development and a user with full permission to this schema called user_goals
 * `$ gem install bundler ; bundle install`

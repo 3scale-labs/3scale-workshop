@@ -2,10 +2,12 @@
 
 class User
   include DataMapper::Resource
+  include BCrypt
 
   property :id,           Serial
   property :name,         String
   property :email,        String
+  property :password,     BCryptHash
   property :avatar,       String # path to avatar image
   property :reward,       Text
   property :reminder,     Date
@@ -15,6 +17,13 @@ class User
   has n, :statistics
 
   #is :authenticatable
+  def authenticate(pwd)
+    if self.password == pwd
+      true
+    else
+      false
+    end
+  end
 end
 
 User.fixture {{
