@@ -18,7 +18,7 @@ class User
 end
 
 User.fixture {{
-                :name                  => { /\w+/.gen },
+                :name                  => "#{/\w+/.gen}",
                 :email                 => "#{/\w+/.gen}@#{/\w+/.gen}.#{/co.uk|com|net|org/.gen}",
                 :reward                => /[:sentence:]/.gen,
                 :password              => (password = /\w+/.gen),
