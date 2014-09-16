@@ -1,5 +1,5 @@
 require "rubygems"
-require 'grape'
+require "grape"
 require "./application"
 
 class API < Grape::API
