@@ -20,11 +20,11 @@ if User.count == 0
 end
 
 I18n.config.enforce_available_locales = false
-#set :views, './app/views'
 
 class Application < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
+  set :views, 'app/views'
 
   use Warden::Manager do |config|
     config.serialize_into_session{|user| user.id }
