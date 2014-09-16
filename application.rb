@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 require 'json'
+require 'i18n'
 require 'date'
 require 'warden'
 
@@ -12,7 +13,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-config.i18n.enforce_available_locales = false
+I18n.config.enforce_available_locales = false
 set :views, 'app/views'
 
 enable :sessions
