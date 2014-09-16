@@ -18,10 +18,10 @@ class User
 end
 
 User.fixture {{
-                :name                  => Randgen.name,
+                :name                  => { /\w+/.gen },
                 :email                 => "#{/\w+/.gen}@#{/\w+/.gen}.#{/co.uk|com|net|org/.gen}",
                 :reward                => /[:sentence:]/.gen,
-  :password              => (password = /\w+/.gen),
+                :password              => (password = /\w+/.gen),
                 :password_confirmation => password
 }}
 
