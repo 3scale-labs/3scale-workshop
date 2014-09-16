@@ -6,7 +6,7 @@ class User
   include BCrypt
 
   property :id,           Serial
-  property :name,         String
+  property :username,     String
   property :email,        String
   property :password,     BCryptHash
   property :avatar,       String # path to avatar image
