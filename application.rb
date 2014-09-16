@@ -12,6 +12,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+set :views, 'app/views'
+
 enable :sessions
 register Sinatra::Flash
 
