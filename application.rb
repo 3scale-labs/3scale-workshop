@@ -14,7 +14,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 if User.count == 0
-  @user = User.create(username: "admin")
+  @user = User.create(name: "admin")
   @user.password = "admin"
   @user.save
 end
