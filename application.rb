@@ -13,6 +13,12 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+if User.count == 0
+  @user = User.create(username: "admin")
+  @user.password = "admin"
+  @user.save
+end
+
 I18n.config.enforce_available_locales = false
 set :views, 'app/views'
 
