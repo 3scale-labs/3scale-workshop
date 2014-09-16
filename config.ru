@@ -8,7 +8,7 @@ class API < Grape::API
 
   resource :user do 
     get ':id' do
-      User.find(params[:id])
+      User.get(params[:id])
     end
   end
 end
