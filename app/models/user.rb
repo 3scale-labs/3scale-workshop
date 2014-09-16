@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'bcrypt'
 
 class User
   include DataMapper::Resource
