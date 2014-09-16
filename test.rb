@@ -3,10 +3,6 @@ require 'bundler'
 require 'json'
 Bundler.require
 
-configure :development do
-  DataMapper.setup :default, "sqlite::memory:"
-end
-
 Dir[File.join(File.dirname(__FILE__), 'app/**/*.rb')].sort.each { |f| require f }
 
 DataMapper.finalize
