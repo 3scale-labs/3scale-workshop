@@ -10,26 +10,26 @@ class User
   property :reward,       Text
   property :reminder,     Date
   property :repeat,       Enum[:none, :daily, :weekly, :monthly]
-  
+
   has n, :plans
   has n, :statistics
-  
-  is :authenticatable
+
+  #is :authenticatable
 end
 
 User.fixture {{
-  :name                  => Randgen.name,
-  :email                 => "#{/\w+/.gen}@#{/\w+/.gen}.#{/co.uk|com|net|org/.gen}",
-  :reward                => /[:sentence:]/.gen,
+                :name                  => Randgen.name,
+                :email                 => "#{/\w+/.gen}@#{/\w+/.gen}.#{/co.uk|com|net|org/.gen}",
+                :reward                => /[:sentence:]/.gen,
   :password              => (password = /\w+/.gen),
-  :password_confirmation => password
+                :password_confirmation => password
 }}
 
 get '/user/:id.json' do |id|
   content_type :json
-  
+
   user = User.get(id)
-  
+
   user_data = {
     :id         => user.id,
     :name       => user.name,
@@ -40,16 +40,16 @@ get '/user/:id.json' do |id|
     :repeat     => user.repeat,
     :goals      => user.plans.map {|p|
       {
-        :plan_id     => p.id, 
-        :goal_id     => p.goal.id, 
-        :title       => p.goal.title, 
-        :description => p.goal.description, 
-        :done        => p.done, 
+        :plan_id     => p.id,
+        :goal_id     => p.goal.id,
+        :title       => p.goal.title,
+        :description => p.goal.description,
+        :done        => p.done,
         :priority    => p.priority
       }
     },
     :statistics => user.statistics
   }
-  
+
   user_data.to_json
 end
