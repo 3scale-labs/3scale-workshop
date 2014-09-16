@@ -7,7 +7,7 @@ Bundler.require
 
 Dir[File.join(File.dirname(__FILE__), 'app/**/*.rb')].sort.each { |f| require f }
 
-#DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
