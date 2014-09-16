@@ -3,8 +3,13 @@ require "grape"
 require "./application"
 
 class API < Grape::API
-  get '/' do 
-    "test".to_json
+  prefix 'api'
+  format :json
+
+  resource :user do 
+    get ':id' do
+      User.find(params[:id])
+    end
   end
 end
 
