@@ -8,4 +8,4 @@ class API < Grape::API
   end
 end
 
-run Rack::Cascade.new [API, Sinatra::Application]
+run Rack::Cascade.new [API, Application]
