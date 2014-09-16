@@ -20,7 +20,7 @@ if User.count == 0
 end
 
 I18n.config.enforce_available_locales = false
-set :views, './app/views'
+#set :views, './app/views'
 
 class Application < Sinatra::Base
   enable :sessions
