@@ -1,6 +1,7 @@
 require "rubygems"
 require "grape"
 require "./application"
+require "./tools/create_3scale_account"
 
 class API < Grape::API
   prefix 'api'
@@ -19,4 +20,4 @@ use Rack::Block do
   # end
 end
 
-run Rack::Cascade.new [API, Application]
+run Rack::Cascade.new [API, Application, Helper]

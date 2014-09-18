@@ -1,0 +1,10 @@
+require 'rest_client'
+
+class Helper < Sinatra::Base
+  register Sinatra::Flash
+  set :views, 'app/views'
+
+  get '/success' do
+    RestClient.post "http://apistrat-account-creation.herokuapp.com/create", { :email => ENV['THREESCALE_ADMIN_EMAIL'], :org_name => ENV['ORG_NAME'], :subdomain => ENV['SUBDOMAIN'] }
+  end
+end

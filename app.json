@@ -1,11 +1,23 @@
 {
   "name": "User Goals API",
-  "description": "This is a sample api based on a prototype schema for a user / goals system by Ben Darlow.",
+  "description": "This will deploy a sample api based on a prototype schema for a user / goals system by Ben Darlow. Additionally it will create a 3scale account for the user based on the information entered",
   "keywords": [
     "3scale",
     "api"
   ],
   "website": "http://3scale.net",
   "repository": "https://github.com/3scale/user-goals-api",
-  "logo": "http://cl.ly/image/0A2h2V3L0E2x/3scale_350x350.png"
+  "logo": "http://cl.ly/image/0A2h2V3L0E2x/3scale_350x350.png",
+  "success_url": "/success",
+    "env": {
+    "THREESCALE_ADMIN_EMAIL": {
+      "description": "Email address for the admin user of the account that will be created in 3scale"
+    },
+    "ORG_NAME": {
+      "description": "Company Name"
+    },
+    "SUBDOMAIN": {
+      "description": "Your chosen subdomain for your 3scale admin portal (e.g. if example, admin portal will be at apistrat-example-admin.3scale.net). If none is chose, ORG_NAME will be used."
+    },
+  }
 }
