@@ -13,4 +13,10 @@ class API < Grape::API
   end
 end
 
+use Rack::Block do
+  # ua_pattern '/api' do
+  #   halt 403, 'Forbidden'
+  # end
+end
+
 run Rack::Cascade.new [API, Application]
