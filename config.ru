@@ -1,7 +1,7 @@
 require "rubygems"
 require "grape"
 require "./application"
-require "./tools/create_3scale_account"
+require "./tools/helper"
 
 class API < Grape::API
   prefix 'api'
