@@ -1,20 +1,14 @@
-user_goals
-==========
+User Goals API
+==============
 
 This is a sample api based on a prototype schema for a user / goals system by Ben Darlow. It has been modified to run on Heroku and use Grape for the API framework. 
 
 Deployment
 ----------
 
-### Pre-reqs
+To deploy to Heroku, simply click this button: 
 
-To run on Heroku, you should have a heroku account and the [heroku toolbelt](https://toolbelt.heroku.com/) installed on your machine
-
-### Steps
-
-To deploy to Heroku, simply clone this repo and run `heroku create` on the folder.
-
-This will create a heroku application which you can quickly and easily deploy by running `git push heroku master`
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 Routes
 ------
