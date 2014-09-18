@@ -6,14 +6,6 @@ This is a sample api based on a prototype schema for a user / goals system by Be
 Deployment
 ----------
 
-To deploy to Heroku, simply clone this repo and run `heroku create` on the folder.
-
-This will create a heroku application which you can 
-
-* Create a local MySQL database called user_goals_development and a user with full permission to this schema called user_goals
-* `$ gem install bundler ; bundle install`
-* `$ bundle exec thin start`
-* Open http://0.0.0.0:3000/path/to/resource.json to test the JSON routes.
 
 Routes
 ------
@@ -23,21 +15,3 @@ Routes
 * `/food/:id.json` => all foods within the given category (meal)
 * `/activity/:id.json` => all activities within the given category
 * `/user/:id.json` => a specified user's details, including any goals within their plan
-
-Caveats
--------
-
-For simplicity's sake, this prototype doesn't attempt to deal with authentication (although the user model does have properties for auth in this example). This should be handled with a session token passed back as part of an authentication step, and stored locally.
-
-TODO
-----
-
-Posted routes:
-
-* Register a user
-* Authenticate a user
-* Reset a password
-* Add a goal to a user
-* Update a goal's status (change priority, mark as done)
-* Update a user's reward
-* Set a reminder
