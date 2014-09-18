@@ -1,11 +1,11 @@
 {
   "name": "User Goals API",
-  "description": "This is a sample api based on a prototype schema for a user / goals system by Ben Darlow. It has been modified to run on Heroku and use Grape for the API framework. ",
+  "description": "This is a sample api based on a prototype schema for a user / goals system by Ben Darlow.",
   "keywords": [
     "3scale",
     "api"
   ],
   "website": "http://3scale.net",
   "repository": "https://github.com/3scale/user-goals-api",
-  "logo": "http://cl.ly/image/0A2h2V3L0E2x/3scale_350x350.png",
+  "logo": "http://cl.ly/image/0A2h2V3L0E2x/3scale_350x350.png"
 }
