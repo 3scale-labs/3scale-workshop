@@ -1,6 +1,6 @@
 {
   "name": "User Goals API",
-  "description": "This will deploy a sample api based on a prototype schema for a user/goals system by Ben Darlow. Additionally it will create a 3scale account.",
+  "description": "A Sample API for the 'Crash Course - Practical API Management' Workshop at APIStrat Chicago 2014.",
   "keywords": [
     "3scale",
     "api"
