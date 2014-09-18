@@ -3,9 +3,20 @@ require "grape"
 require "./application"
 
 class API < Grape::API
-  get '/' do 
-    "test".to_json
+  prefix 'api'
+  format :json
+
+  resource :user do 
+    get ':id' do
+      User.get(params[:id])
+    end
   end
 end
 
-run Rack::Cascade.new [API, Sinatra::Application]
+use Rack::Block do
+  # ua_pattern '/api' do
+  #   halt 403, 'Forbidden'
+  # end
+end
+
+run Rack::Cascade.new [API, Application]
