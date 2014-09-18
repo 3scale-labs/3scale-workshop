@@ -18,6 +18,6 @@
     },
     "SUBDOMAIN": {
       "description": "Your chosen subdomain for your 3scale admin portal (e.g. if example, admin portal will be at apistrat-example-admin.3scale.net). If none is chose, ORG_NAME will be used."
-    },
+    }
   }
 }
