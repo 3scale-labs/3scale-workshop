@@ -38,7 +38,7 @@ class API < Grape::API
         if(category.type == :food) then
           Item.all(:category => category)
         else
-          '[{ "error":"id does not belong to the food category"}]'
+          JSON.parse('{"error": "id does not belong to the food category"}')
         end
       end
     end
@@ -55,7 +55,7 @@ class API < Grape::API
         if(category.type == :activity ) 
           Item.all(:category => category)
         else
-          '[{ "error":"id does not belong to the activity category"}]'
+          JSON.parse('{"error": "id does not belong to the activity category"}')
         end
       end
     end
