@@ -23,14 +23,14 @@ class API < Grape::API
   resource :activities do
     desc "Get all activities"
     get do
-        Category.all(:type => :activity).to_json
+      Category.all(:type => :activity).to_json
     end
   end
 
   resource :food do
     desc "Get all foods within the given category"
     get ':id' do
-      category = Category.get(id)
+      category = Category.get(:id)
       if(category.type == 'food') then
         Item.all(:category => category).to_json
       else
@@ -42,7 +42,7 @@ class API < Grape::API
   resource :activity do
     desc "Get all activities within the given category"
     get ':id' do
-      category = Category.get(id)
+      category = Category.get(:id)
       if(category.type == "activity") 
         Item.all(:category => category).to_json
       else
