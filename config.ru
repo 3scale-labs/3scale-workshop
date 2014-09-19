@@ -29,28 +29,34 @@ class API < Grape::API
 
   resource :food do
     desc "Get all foods within the given category"
-    get ':id' do
-      puts :id
-      category = Category.get(:id)
-      puts category
-      puts category.type
-      if(category.type == :food) then
-        items = Item.all(:category => category).to_json
-        puts items
-      else
-        '{ "error":"id does not belong to the food category"}'.to_json
+    params do
+        requires :id, type: Integer, desc: "Category id."
+    end
+    route_param :id do
+      get do
+        category = Category.get(params[:id])
+        if(category.type == :food) then
+          Item.all(:category => category).to_json
+        else
+          '{ "error":"id does not belong to the food category"}'.to_json
+        end
       end
     end
   end
 
   resource :activity do
     desc "Get all activities within the given category"
-    get ':id' do
-      category = Category.get(:id)
-      if(category.type == :activity ) 
-        Item.all(:category => category).to_json
-      else
-        '{ "error":"id does not belong to the activity category"}'.to_json
+        params do
+        requires :id, type: Integer, desc: "Category id."
+    end
+    route_param :id do
+      get do
+        category = Category.get(params[:id])
+        if(category.type == :activity ) 
+          Item.all(:category => category).to_json
+        else
+          '{ "error":"id does not belong to the activity category"}'.to_json
+        end
       end
     end
   end
