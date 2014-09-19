@@ -17,8 +17,8 @@ On successful deploy, follow the "View it" link on Heroku to get your 3scale acc
 Routes
 ------
 
-* `/meals.json` => all meal categories
-* `/activities.json` => all activity categories
-* `/food/:id.json` => all foods within the given category (meal)
-* `/activity/:id.json` => all activities within the given category
-* `/user/:id.json` => a specified user's details, including any goals within their plan
+* `/api/meals.json` => all meal categories
+* `/api/activities.json` => all activity categories
+* `/api/food/:id.json` => all foods within the given category (meal)
+* `/api/activity/:id.json` => all activities within the given category
+* `/api/user/:id.json` => a specified user's details, including any goals within their plan
