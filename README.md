@@ -10,6 +10,10 @@ To deploy to Heroku, simply click this button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+This will also create a 3scale account for you. 
+
+On successful deploy, follow the "View it" link on Heroku to get your 3scale account details. 
+
 Routes
 ------
 
