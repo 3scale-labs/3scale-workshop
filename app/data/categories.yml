@@ -376,7 +376,7 @@
           :description: "Fruit naturally contains sugar, so you don’t need to add any"
 - :type: :activity
   :name: "Other"
-  :tip: "‘Other’ covers everything else — hoovering, playing in the park or walking up a flight of stairs. Everyone does something that’s included here!"
+  :tip: "'Other' covers everything else - hoovering, playing in the park or walking up a flight of stairs. Everyone does something that's included here!"
   :items:
     - :name: "Walking"
       :image: "/images/categories/activity/walking.jpg"
