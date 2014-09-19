@@ -17,8 +17,7 @@
       "description": "Company Name"
     },
     "SUBDOMAIN": {
-      "description": "Your chosen subdomain for your 3scale admin portal (e.g. if 'example' is chosen as subdomain, admin portal will be at example-apistrat-admin.3scale.net). If none is chosen, ORG_NAME will be used instead.",
-      "required": false
+      "description": "Your chosen subdomain for your 3scale admin portal (e.g. if 'example' is chosen as subdomain, admin portal will be at example-apistrat-admin.3scale.net). If none is chosen, ORG_NAME will be used instead."
     }
   }
 }
