@@ -16,14 +16,14 @@ class API < Grape::API
   resource :meals do
     desc "Get all meals"
     get do
-      Category.all(:type => :food).to_json
+      Category.all(:type => :food)
     end
   end
 
   resource :activities do
     desc "Get all activities"
     get do
-      Category.all(:type => :activity).to_json
+      Category.all(:type => :activity)
     end
   end
 
