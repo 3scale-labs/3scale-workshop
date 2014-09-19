@@ -31,7 +31,7 @@ class API < Grape::API
     desc "Get all foods within the given category"
     get ':id' do
       category = Category.get(:id)
-      if(category.type == 'food') then
+      if(category.type == :food) then
         Item.all(:category => category).to_json
       else
         '{ "error":"id does not belong to the food category"}'.to_json
@@ -43,7 +43,7 @@ class API < Grape::API
     desc "Get all activities within the given category"
     get ':id' do
       category = Category.get(:id)
-      if(category.type == "activity") 
+      if(category.type == :activity ) 
         Item.all(:category => category).to_json
       else
         '{ "error":"id does not belong to the activity category"}'.to_json
