@@ -30,7 +30,7 @@ class API < Grape::API
   resource :food do
     desc "Get all foods within the given category"
     params do
-        requires :id, type: Integer, desc: "Category id."
+      requires :id, type: Integer, desc: "Category id."
     end
     route_param :id do
       get do
@@ -38,7 +38,7 @@ class API < Grape::API
         if(category.type == :food) then
           Item.all(:category => category)
         else
-          '{ "error":"id does not belong to the food category"}'
+          '[{ "error":"id does not belong to the food category"}]'
         end
       end
     end
@@ -55,7 +55,7 @@ class API < Grape::API
         if(category.type == :activity ) 
           Item.all(:category => category)
         else
-          '{ "error":"id does not belong to the activity category"}'
+          '[{ "error":"id does not belong to the activity category"}]'
         end
       end
     end
