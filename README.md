@@ -1,7 +1,7 @@
-User Goals API
-==============
+APIStrat Chicago 2014 Worshop: Crash Course - Practical API Management
+======================================================================
 
-This is a sample api based on a prototype schema for a user / goals system by Ben Darlow. It has been modified to run on Heroku and use Grape for the API framework. 
+This is a sample api based on a prototype schema for a user / goals system by Ben Darlow to be used for the "Crash Course - Practical API Management" workshop at APIStrat 2014 in Chicago. It has been modified to run on Heroku and use Grape for the API framework. 
 
 Deployment
 ----------
@@ -16,6 +16,8 @@ On successful deploy, follow the "View it" link on Heroku to get your 3scale acc
 
 Routes
 ------
+
+Here are some sample routes
 
 * `/api/meals.json` => all meal categories
 * `/api/activities.json` => all activity categories
