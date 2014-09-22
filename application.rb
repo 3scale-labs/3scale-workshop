@@ -4,6 +4,10 @@ require 'json'
 require 'i18n'
 require 'date'
 require 'warden'
+require 'cgi'
+require 'uri'
+require 'net/http'
+require 'nokogiri'
 
 Bundler.require
 
@@ -25,6 +29,7 @@ class Application < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   set :views, 'app/views'
+  use Rack::Session::Cookie, :secret => ENV['RACK_SESSION_SECRET']
 
   use Warden::Manager do |config|
     config.serialize_into_session{|user| user.id }
@@ -59,6 +64,7 @@ class Application < Sinatra::Base
   end
 
   def initialize
+    super()
     unless Category.any?
       Category.import_from_yaml
       10.times { User.generate }
@@ -83,6 +89,20 @@ class Application < Sinatra::Base
     else
       "Previously initialised"
     end
+  end
+
+  def application_name_lookup(client_id)
+    @host = ENV['THREESCALE_ADMIN_DASHBOARD']
+    @provider_key = ENV['THREESCALE_PROVIDER_KEY']
+    path = "/admin/api/applications/find.xml?provider_key=#{CGI.escape(@provider_key)}&app_id=#{client_id}"
+    uri = URI.parse("https://#{@host}#{path}")
+    puts uri
+    http_response = Net::HTTP.get_response(uri)
+
+    puts http_response.body
+    doc = Nokogiri::XML(http_response.body)
+    @service_id = doc.xpath("//application/service_id").first.content.to_s.strip
+    @application_name = doc.xpath("//application/name").first.content.to_s.strip
   end
 
   get '/init' do
@@ -146,9 +166,16 @@ class Application < Sinatra::Base
     redirect '/auth/login'
   end
 
-  get '/protected' do
-    env['warden'].authenticate!
+  get '/authorize' do
     @current_user = env['warden'].user
-    erb :protected
+    session[:state] = params['state'] || session[:state]
+
+    unless env['warden'].authenticated?
+      puts env['warden']
+      session[:return_to] = '/authorize'
+      redirect '/auth/login'
+    end
+
+    erb :authorize, :locals => {:username => @current_user.id, :state => session[:state] }
   end
 end

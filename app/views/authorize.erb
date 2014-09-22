@@ -1,0 +1,14 @@
+<h1>Do you want to Authorize this?</h1>
+
+<p>You are authorizing an application to access your data. </p>
+
+<form name="input" action="http://user-goals-oauth-api-gateway.herokuapp.com/callback" method="get">
+  <input type="hidden" name="state" value="<%= state %>">
+  <input type="hidden" name="username" value="<%= username %>">
+<br />
+  <div class="btn-group">
+    <button type="submit" class="btn">Accept</button>
+    <button type="button" class="btn">Decline</button>
+  </div>
+
+</form>

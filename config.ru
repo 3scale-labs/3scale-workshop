@@ -8,8 +8,14 @@ class API < Grape::API
   format :json
 
   resource :user do 
-    get ':id' do
-      User.get(params[:id])
+    params do
+      #requires :secret_token, type: String, desc: "Token sent from API Gateway"
+      requires :id, type: Integer, desc: "User id."
+    end
+    route_param :id do
+      get do
+        User.get(params[:id])
+      end
     end
   end
 
