@@ -18,7 +18,7 @@ class API < Grape::API
 
         user_data = {
           :id         => user.id,
-          :name       => user.name,
+          :name       => user.username,
           :email      => user.email,
           :avatar     => user.avatar,
           :reward     => user.reward,
