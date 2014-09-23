@@ -89,10 +89,6 @@ class API < Grape::API
   end
 end
 
-use Rack::Block do
-  # ua_pattern '/api' do
-  #   halt 403, 'Forbidden'
-  # end
-end
+set :protection, :origin_whitelist => ['http://user-goals-oauth-api-gateway.herokuapp.com']
 
 run Rack::Cascade.new [Application, API, Helper]
