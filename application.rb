@@ -4,10 +4,6 @@ require 'json'
 require 'i18n'
 require 'date'
 require 'warden'
-require 'cgi'
-require 'uri'
-require 'net/http'
-require 'nokogiri'
 
 Bundler.require
 
@@ -89,20 +85,6 @@ class Application < Sinatra::Base
     else
       "Previously initialised"
     end
-  end
-
-  def application_name_lookup(client_id)
-    @host = ENV['THREESCALE_ADMIN_DASHBOARD']
-    @provider_key = ENV['THREESCALE_PROVIDER_KEY']
-    path = "/admin/api/applications/find.xml?provider_key=#{CGI.escape(@provider_key)}&app_id=#{client_id}"
-    uri = URI.parse("https://#{@host}#{path}")
-    puts uri
-    http_response = Net::HTTP.get_response(uri)
-
-    puts http_response.body
-    doc = Nokogiri::XML(http_response.body)
-    @service_id = doc.xpath("//application/service_id").first.content.to_s.strip
-    @application_name = doc.xpath("//application/name").first.content.to_s.strip
   end
 
   get '/init' do
