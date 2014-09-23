@@ -28,7 +28,7 @@ class User
 end
 
 User.fixture {{
-                :username                  => (user = "#{Randgen.name.downcase.tr(" ", ".")}"),
+                :username              => (user = "#{Randgen.name.downcase.tr(" ", ".")}"),
                 :email                 => "#{user}@example.#{/co.uk|com|net|org/.gen}",
                 :reward                => "Generic reward",
                 :password              => (password = "password"),
