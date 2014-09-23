@@ -14,7 +14,28 @@ class API < Grape::API
     end
     route_param :id do
       get do
-        User.get(params[:id])
+        user = User.get(params[:id])
+
+        user_data = {
+          :id         => user.id,
+          :name       => user.name,
+          :email      => user.email,
+          :avatar     => user.avatar,
+          :reward     => user.reward,
+          :reminder   => user.reminder,
+          :repeat     => user.repeat,
+          :goals      => user.plans.map {|p|
+            {
+              :plan_id     => p.id,
+              :goal_id     => p.goal.id,
+              :title       => p.goal.title,
+              :description => p.goal.description,
+              :done        => p.done,
+              :priority    => p.priority
+            }
+            },
+            :statistics => user.statistics
+          }
       end
     end
   end
