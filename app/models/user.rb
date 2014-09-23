@@ -28,11 +28,10 @@ class User
 end
 
 User.fixture {{
-                :name                  => "#{/\w+/.gen}",
-                :email                 => "#{/\w+/.gen}@#{/\w+/.gen}.#{/co.uk|com|net|org/.gen}",
-                :reward                => /[:sentence:]/.gen,
-                :password              => (password = /\w+/.gen),
-                :password_confirmation => password
+                :username                  => (user = "#{Randgen.name.downcase.tr(" ", ".")}"),
+                :email                 => "#{user}@example.#{/co.uk|com|net|org/.gen}",
+                :reward                => "Generic reward",
+                :password              => (password = "password"),
 }}
 
 get '/user/:id.json' do |id|

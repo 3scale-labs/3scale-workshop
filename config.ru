@@ -75,4 +75,4 @@ use Rack::Block do
   # end
 end
 
-run Rack::Cascade.new [API, Application, Helper]
+run Rack::Cascade.new [Application, API, Helper]
