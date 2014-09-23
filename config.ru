@@ -2,6 +2,7 @@ require "rubygems"
 require "grape"
 require "./application"
 require "./tools/helper"
+require 'grape-swagger'
 
 class API < Grape::API
   prefix 'api'
@@ -87,7 +88,7 @@ class API < Grape::API
       end
     end
   end
-
+add_swagger_documentation
 end
 
 use Rack::Block do
