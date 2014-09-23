@@ -1,0 +1,102 @@
+{
+  "basePath": "http://user-goals-api.herokuapp.com",
+  "apiVersion": "v1",
+  "apis": [
+    {
+      "path": "/api/meals.json",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets all available meals",
+          "description": "This operation returns all meals",
+          "group": "meal",
+          "parameters": [
+            {
+              "name": "user_key",
+              "description": "Your access API key",
+              "dataType": "string",
+              "paramType": "query",
+              "threescale_name": "user_keys"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/api/activities.json",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets all available activities",
+          "description": "<p>This operation returns all activities.",
+          "group": "activity",
+          "parameters": [
+            {
+              "name": "user_key",
+              "description": "Your access API key",
+              "dataType": "string",
+              "paramType": "query",
+              "threescale_name": "user_keys"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/api/food/{id}.json",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets all food items under the given meal category",
+          "description": "<p>This operation returns all activities.",
+          "group": "meal",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "The meal id whose food items will be returned",
+              "dataType": "string",
+              "allowMultiple": false,
+              "required": true,
+              "paramType": "path"
+            },
+            {
+              "name": "user_key",
+              "description": "Your access API key",
+              "dataType": "string",
+              "paramType": "query",
+              "threescale_name": "user_keys"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/api/activity/{id}.json",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "summary": "Gets all activities under the given activity category",
+          "description": "<p>This operation returns all activities.",
+          "group": "activity",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "The activity category id whose activities will be returned",
+              "dataType": "string",
+              "allowMultiple": false,
+              "required": true,
+              "paramType": "path"
+            },
+            {
+              "name": "user_key",
+              "description": "Your access API key",
+              "dataType": "string",
+              "paramType": "query",
+              "threescale_name": "user_keys"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
