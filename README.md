@@ -28,7 +28,9 @@ Here are some sample routes
 Sample users
 ------------
 
-These are for the user-goals-api.herokuapp.com application only. Other clones will have different random users created
+These are for the user-goals-api.herokuapp.com application only. Other clones of this repo will have different random users created.
+
+Password is `password` for every user
 
 ```json
 {  
