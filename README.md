@@ -34,7 +34,7 @@ These are for the user-goals-api.herokuapp.com application only. Other clones wi
 {  
    "id":1,
    "username":"admin",
-   "email":"pili@3scale.net,
+   "email":"pili@3scale.net",
    "password":"$2a$10$APK.E6wYN9QyOJbg.mniUOL1yPWXhtVcxCoIlNrd9E6aVhc08nbry"
 },
 {  
