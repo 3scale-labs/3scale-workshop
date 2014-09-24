@@ -30,7 +30,7 @@ Sample users
 
 These are for the user-goals-api.herokuapp.com application only. Other clones of this repo will have different random users created.
 
-Password is `password` for every user
+Password is `password` for every user, apart from admin, where the password is `admin`
 
 ```json
 {  

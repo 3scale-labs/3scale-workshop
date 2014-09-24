@@ -13,9 +13,6 @@
     "THREESCALE_ADMIN_EMAIL": {
       "description": "Email address for the admin user of the account that will be created in 3scale"
     },
-    "THREESCALE_ADMIN_PWD": {
-      "description": "Password for the admin user of the account that will be created in 3scale. To log in to account"
-    },
     "ORG_NAME": {
       "description": "Company Name"
     },
