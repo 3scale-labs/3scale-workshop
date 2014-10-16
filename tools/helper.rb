@@ -1,7 +1,10 @@
-require 'rest_client'
+require 'patron'
 
 class Helper < Sinatra::Base
   get '/success' do
-    RestClient.post "https://apistrat-account-creation.herokuapp.com/create", { :email => ENV['THREESCALE_ADMIN_EMAIL'], :org_name => ENV['ORG_NAME'], :subdomain => ENV['SUBDOMAIN'] || ENV['ORG_NAME'], :password => ENV['THREESCALE_ADMIN_PWD'] }
+    s = Patron::Session.new
+    s.ssl_version = 'TLSv1'
+    s.base_url = 'https://apistrat-account-creation.herokuapp.com:443'
+    s.post("/create", :email => ENV['THREESCALE_ADMIN_EMAIL'], :org_name => ENV['ORG_NAME'], :subdomain => ENV['SUBDOMAIN'] || ENV['ORG_NAME'], :password => ENV['THREESCALE_ADMIN_PWD'])
   end
 end
