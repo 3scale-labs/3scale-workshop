@@ -41,12 +41,12 @@ curl -u :`heroku auth:token` -H 'Accept: application/vnd.heroku+json; version=3'
 This will return json similar to the below:
 ```
 {
-  "id": "890ce488-bae1-4955-9903-950024400b76",
+  "id": "DEPLOY_ID",
   "failure_message": null,
   "status": "pending",
   "app": {
-    "id": "f8c21d36-4d46-4349-8243-000e79907e3f",
-    "name": "guarded-chamber-8554"
+    "id": "APPLICATION_ID",
+    "name": "APPLICATION_NAME"
   },
   "build": {
     "id": null,
@@ -72,15 +72,15 @@ curl -n -X GET https://api.heroku.com/app-setups/{id} -H "Accept: application/vn
 Will return the following on successful deploy:
 ```
 {
-  "id": "4f19a329-a952-45d3-a855-91a6dd73070e",
+  "id": "DEPLOY_ID",
   "failure_message": null,
   "status": "succeeded",
   "app": {
-    "id": "5fa2907e-3a7f-4f64-a6f9-22059e636ba6",
-    "name": "dry-cove-1225"
+    "id": "APPLICATION_ID",
+    "name": "APPLICATION_NAME"
   },
   "build": {
-    "id": "ba57d80a-090f-4f2d-9a4c-cb938ac40d21",
+    "id": "BUILD_ID",
     "status": "succeeded"
   },
   "manifest_errors": [
@@ -90,13 +90,13 @@ Will return the following on successful deploy:
     "output": null,
     "exit_code": null
   },
-  "resolved_success_url": "http:\/\/dry-cove-1225.herokuapp.com\/success",
+  "resolved_success_url": "http://APPLICATION_NAME.herokuapp.com/success",
   "created_at": "2014-10-17T14:00:18+00:00",
   "updated_at": "2014-10-17T14:01:21+00:00"
 }
 ```
-The deploy takes a few minutes, so you might need to call the endpoint a couple of times before you get the resolved_success_url shown. 
-Once the API is deployed, you should visit the resolved_success_url to automatically create a 3scale account with the data entered in the application deploy step (email, password and org name.)
+The deploy takes a few minutes, so you might need to call the endpoint a couple of times before you get the `resolved_success_url` shown. 
+Once the API is deployed, you should visit the `resolved_success_url` to automatically create a 3scale account with the data entered in the application deploy step (email, password and org name.)
 
 
 Routes
