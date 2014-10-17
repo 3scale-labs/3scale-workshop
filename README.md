@@ -3,7 +3,7 @@
 
 This is a sample api based on a prototype schema for a user / goals system by Ben Darlow to be used for the "Crash Course - Practical API Management" workshop first delivered at APIStrat 2014 in Chicago. It has been modified to run on Heroku and use Grape for the API framework. 
 
-You can find a full set of links and more background [here](bit.ly/3scaleworkshop): 
+You can find a full set of links to follow along with the rest of the workshop [here](http://bit.ly/3scaleworkshop)
 
 Deployment
 ----------
@@ -20,7 +20,8 @@ On successful deploy, follow the "View it" link on Heroku to get your 3scale acc
 
 In case the deploy to Heroku button fails, you can use the following alternative steps as long as you have the Heroku toolbox installed.
 
-From a terminal run the following curl
+From a terminal run the following curl:
+
 ```
 curl -u :`heroku auth:token` -H 'Accept: application/vnd.heroku+json; version=3' -X POST -d '
 {
@@ -40,8 +41,10 @@ curl -u :`heroku auth:token` -H 'Accept: application/vnd.heroku+json; version=3'
 }
 ' https://api.heroku.com/app-setups
 ```
+
 This will return json similar to the below:
-```
+
+```json
 {
   "id": "DEPLOY_ID",
   "failure_message": null,
@@ -67,12 +70,15 @@ This will return json similar to the below:
 }
 ```
 You can use the following call to check whether your application has fully deployed or is still pending:
+
 ```
 curl -n -X GET https://api.heroku.com/app-setups/DEPLOY_ID -H "Accept: application/vnd.heroku+json; version=3"
 
 ```
+
 Will return the following on successful deploy:
-```
+
+```json
 {
   "id": "DEPLOY_ID",
   "failure_message": null,
@@ -97,6 +103,7 @@ Will return the following on successful deploy:
   "updated_at": "2014-10-17T14:01:21+00:00"
 }
 ```
+
 The deploy takes a few minutes, so you might need to call the endpoint a couple of times before you get the `resolved_success_url` shown. 
 Once the API is deployed, you should visit the `resolved_success_url` to automatically create a 3scale account with the data entered in the application deploy step (email, password and org name.)
 
@@ -115,7 +122,7 @@ Here are some sample routes the API provides:
 Sample users
 ------------
 
-These are for the user-goals-api.herokuapp.com application only. Other clones of this repo will have different random users created.
+These are for the https://user-goals-api.herokuapp.com application only. Other clones of this repo will have different random users created.
 
 Password is `password` for every user, apart from admin, where the password is `admin`
 
