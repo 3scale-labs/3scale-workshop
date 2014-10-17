@@ -1,7 +1,7 @@
-APIStrat Chicago 2014 Worshop: Crash Course - Practical API Management
+3scale Worshop: Crash Course - Practical API Management
 ======================================================================
 
-This is a sample api based on a prototype schema for a user / goals system by Ben Darlow to be used for the "Crash Course - Practical API Management" workshop at APIStrat 2014 in Chicago. It has been modified to run on Heroku and use Grape for the API framework. 
+This is a sample api based on a prototype schema for a user / goals system by Ben Darlow to be used for the "Crash Course - Practical API Management" workshop first delivered at APIStrat 2014 in Chicago. It has been modified to run on Heroku and use Grape for the API framework. 
 
 Deployment
 ----------
@@ -16,9 +16,9 @@ On successful deploy, follow the "View it" link on Heroku to get your 3scale acc
 
 ### Alternative Deploy Instructions
 
-In case the deploy to Heroku button fails, you can use the following alternative steps as long as you have the Heroku toolbox installed:
+In case the deploy to Heroku button fails, you can use the following alternative steps as long as you have the Heroku toolbox installed.
 
-1. From a terminal run the following curl
+From a terminal run the following curl
 ```
 curl -u :`heroku auth:token` -H 'Accept: application/vnd.heroku+json; version=3' -X POST -d '
 {
@@ -38,21 +38,65 @@ curl -u :`heroku auth:token` -H 'Accept: application/vnd.heroku+json; version=3'
 }
 ' https://api.heroku.com/app-setups
 ```
-2. This will return json similar to the below
+This will return json similar to the below:
 ```
-{"id":"890ce488-bae1-4955-9903-950024400b76","failure_message":null,"status":"pending","app":{"id":"f8c21d36-4d46-4349-8243-000e79907e3f","name":"guarded-chamber-8554"},"build":{"id":null,"status":null},"manifest_errors":[],"postdeploy":{"output":null,"exit_code":null},"resolved_success_url":null,"created_at":"2014-10-17T10:54:43+00:00","updated_at":"2014-10-17T10:54:43+00:00"}
+{
+  "id": "890ce488-bae1-4955-9903-950024400b76",
+  "failure_message": null,
+  "status": "pending",
+  "app": {
+    "id": "f8c21d36-4d46-4349-8243-000e79907e3f",
+    "name": "guarded-chamber-8554"
+  },
+  "build": {
+    "id": null,
+    "status": null
+  },
+  "manifest_errors": [
+    
+  ],
+  "postdeploy": {
+    "output": null,
+    "exit_code": null
+  },
+  "resolved_success_url": null,
+  "created_at": "2014-10-17T10:54:43+00:00",
+  "updated_at": "2014-10-17T10:54:43+00:00"
+}
 ```
-3. You can use the following call to check whether your application has fully deployed or is still pending:
+You can use the following call to check whether your application has fully deployed or is still pending:
 ```
 curl -n -X GET https://api.heroku.com/app-setups/{id} -H "Accept: application/vnd.heroku+json; version=3"
 
 ```
 Will return the following on successful deploy:
 ```
-{"id":"4f19a329-a952-45d3-a855-91a6dd73070e","failure_message":null,"status":"succeeded","app":{"id":"5fa2907e-3a7f-4f64-a6f9-22059e636ba6","name":"dry-cove-1225"},"build":{"id":"ba57d80a-090f-4f2d-9a4c-cb938ac40d21","status":"succeeded"},"manifest_errors":[],"postdeploy":{"output":null,"exit_code":null},"resolved_success_url":"http://dry-cove-1225.herokuapp.com/success","created_at":"2014-10-17T14:00:18+00:00","updated_at":"2014-10-17T14:01:21+00:00"}
+{
+  "id": "4f19a329-a952-45d3-a855-91a6dd73070e",
+  "failure_message": null,
+  "status": "succeeded",
+  "app": {
+    "id": "5fa2907e-3a7f-4f64-a6f9-22059e636ba6",
+    "name": "dry-cove-1225"
+  },
+  "build": {
+    "id": "ba57d80a-090f-4f2d-9a4c-cb938ac40d21",
+    "status": "succeeded"
+  },
+  "manifest_errors": [
+    
+  ],
+  "postdeploy": {
+    "output": null,
+    "exit_code": null
+  },
+  "resolved_success_url": "http:\/\/dry-cove-1225.herokuapp.com\/success",
+  "created_at": "2014-10-17T14:00:18+00:00",
+  "updated_at": "2014-10-17T14:01:21+00:00"
+}
 ```
 The deploy takes a few minutes, so you might need to call the endpoint a couple of times before you get the resolved_success_url shown. 
-4. Once the API is deployed, you should visit the resolved_success_url to automatically create a 3scale account with the data entered in the application deploy step (email, password and org name.)
+Once the API is deployed, you should visit the resolved_success_url to automatically create a 3scale account with the data entered in the application deploy step (email, password and org name.)
 
 
 Routes
