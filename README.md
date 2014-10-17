@@ -3,6 +3,8 @@
 
 This is a sample api based on a prototype schema for a user / goals system by Ben Darlow to be used for the "Crash Course - Practical API Management" workshop first delivered at APIStrat 2014 in Chicago. It has been modified to run on Heroku and use Grape for the API framework. 
 
+You can find a full set of links and more background [here](bit.ly/3scaleworkshop): 
+
 Deployment
 ----------
 
@@ -66,7 +68,7 @@ This will return json similar to the below:
 ```
 You can use the following call to check whether your application has fully deployed or is still pending:
 ```
-curl -n -X GET https://api.heroku.com/app-setups/{id} -H "Accept: application/vnd.heroku+json; version=3"
+curl -n -X GET https://api.heroku.com/app-setups/DEPLOY_ID -H "Accept: application/vnd.heroku+json; version=3"
 
 ```
 Will return the following on successful deploy:
