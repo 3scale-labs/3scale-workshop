@@ -2,7 +2,7 @@
 
 <p>You are authorizing an application to access your data. </p>
 
-<form name="input" action="http://user-goals-oauth-api-gateway.herokuapp.com/callback" method="get">
+<form name="input" action="https://<%= ENV['NGINX_HOST'] %>/callback" method="get">
   <input type="hidden" name="state" value="<%= state %>">
   <input type="hidden" name="username" value="<%= username %>">
 <br />
