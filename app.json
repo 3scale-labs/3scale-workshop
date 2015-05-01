@@ -1,6 +1,6 @@
 {
   "name": "User Goals API",
-  "description": "A Sample API for the 'Crash Course - Practical API Management' Workshop at APIStrat Chicago 2014.",
+  "description": "A Sample API for the 'Crash Course - Practical API Management' Workshop.",
   "keywords": [
     "3scale",
     "api"
