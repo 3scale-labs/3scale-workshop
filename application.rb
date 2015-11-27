@@ -158,6 +158,6 @@ class Application < Sinatra::Base
       redirect '/auth/login'
     end
 
-    erb :authorize, :locals => {:username => @current_user.id, :state => session[:state] }
+    erb :authorize, :locals => {:username => @current_user.id, :state => session[:state], :scope => params['scope'], :response_type => params['response_type'] }
   end
 end
