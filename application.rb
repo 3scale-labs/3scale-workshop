@@ -151,8 +151,8 @@ class Application < Sinatra::Base
   get '/authorize' do
     @current_user = env['warden'].user
     session[:state] = params['state'] || session[:state]
-    session[:scope] = params['scope']
-    session[:response_type] = params['response_type']
+    session[:scope] = params[:scope]
+    session[:response_type] = params[:response_type]
 
     unless env['warden'].authenticated?
       puts env['warden']
