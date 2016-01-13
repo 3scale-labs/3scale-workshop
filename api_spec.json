@@ -1,102 +1,177 @@
 {
-  "basePath": "http://user-goals-api.herokuapp.com",
-  "apiVersion": "v1",
-  "apis": [
-    {
-      "path": "/api/meals.json",
-      "operations": [
-        {
-          "httpMethod": "GET",
-          "summary": "Gets all available meals",
-          "description": "This operation returns all meals",
-          "group": "meal",
-          "parameters": [
-            {
-              "name": "user_key",
-              "description": "Your access API key",
-              "dataType": "string",
-              "paramType": "query",
-              "threescale_name": "user_keys"
-            }
-          ]
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "User Goals APi",
+        "description": "User Goals API Interactive Documentation",
+        "contact": {
+            "name": "3scale Support",
+            "email": "pili@3scale.net"
         }
-      ]
     },
-    {
-      "path": "/api/activities.json",
-      "operations": [
+    "host": "user-goals-oauth-api-gateway.herokuapp.com",
+    "basePath": "/api/",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "security": [
         {
-          "httpMethod": "GET",
-          "summary": "Gets all available activities",
-          "description": "<p>This operation returns all activities.",
-          "group": "activity",
-          "parameters": [
-            {
-              "name": "user_key",
-              "description": "Your access API key",
-              "dataType": "string",
-              "paramType": "query",
-              "threescale_name": "user_keys"
-            }
-          ]
+            "oauth": [
+                "read",
+                "write"
+            ]
         }
-      ]
+    ],
+    "paths": {
+        "/meals.json": {
+            "get": {
+                "summary": "Meal categories",
+                "description": "Returns all meal categories",
+                "operationId": "meals",
+                "responses": {
+                    "200": {
+                        "description": "request processed",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "403": {
+                        "description": "authentication error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/activities.json": {
+            "get": {
+                "summary": "Activity categories",
+                "description": "Returns all activity categories",
+                "operationId": "activities",
+                "responses": {
+                    "200": {
+                        "description": "request processed",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "403": {
+                        "description": "authentication error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/food/{meal_id}.json": {
+            "get": {
+                "summary": "Foods in Meal Category",
+                "description": "Returns all foods within the given meal category.",
+                "operationId": "meal_foods",
+                "parameters": [
+                    {
+                        "name": "meal_id",
+                        "in": "path",
+                        "description": "Meal Category Id",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request processed",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "403": {
+                        "description": "authentication error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/activity/{activity_id}.json": {
+            "get": {
+                "summary": "Activities in category",
+                "description": "Returns all activities within the given category",
+                "operationId": "activities_in_category",
+                "parameters": [
+                    {
+                        "name": "activity_id",
+                        "in": "path",
+                        "description": "GroupID provided in the groups result",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request processed",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "403": {
+                        "description": "authentication error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{user_id}.json": {
+            "get": {
+                "summary": "User data",
+                "description": "Returns the specified user's details, including any goals within their plan.",
+                "operationId": "user",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "GroupID provided in the groups result",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request processed",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "403": {
+                        "description": "authentication error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
     },
-    {
-      "path": "/api/food/{id}.json",
-      "operations": [
-        {
-          "httpMethod": "GET",
-          "summary": "Gets all food items under the given meal category",
-          "description": "<p>This operation returns all activities.",
-          "group": "meal",
-          "parameters": [
-            {
-              "name": "id",
-              "description": "The meal id whose food items will be returned",
-              "dataType": "string",
-              "allowMultiple": false,
-              "required": true,
-              "paramType": "path"
-            },
-            {
-              "name": "user_key",
-              "description": "Your access API key",
-              "dataType": "string",
-              "paramType": "query",
-              "threescale_name": "user_keys"
+    "securityDefinitions": {
+        "oauth": {
+            "type": "oauth2",
+            "authorizationUrl": "https://user-goals-oauth-api-gateway.herokuapp.com/authorize",
+            "tokenUrl": "https://user-goals-oauth-api-gateway.herokuapp.com/oauth/token",
+            "flow": "accessCode",
+            "scopes": {
+                "read": "Read only access",
+                "write": "Read/Write access"
             }
-          ]
         }
-      ]
-    },
-    {
-      "path": "/api/activity/{id}.json",
-      "operations": [
-        {
-          "httpMethod": "GET",
-          "summary": "Gets all activities under the given activity category",
-          "description": "<p>This operation returns all activities.",
-          "group": "activity",
-          "parameters": [
-            {
-              "name": "id",
-              "description": "The activity category id whose activities will be returned",
-              "dataType": "string",
-              "allowMultiple": false,
-              "required": true,
-              "paramType": "path"
-            },
-            {
-              "name": "user_key",
-              "description": "Your access API key",
-              "dataType": "string",
-              "paramType": "query",
-              "threescale_name": "user_keys"
-            }
-          ]
-        }
-      ]
     }
-  ]
 }
