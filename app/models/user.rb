@@ -31,7 +31,7 @@ User.fixture {{
                 :username              => (user = "#{Randgen.name.downcase.tr(" ", ".")}"),
                 :email                 => "#{user}@example.#{/co.uk|com|net|org/.gen}",
                 :reward                => "Generic reward",
-                :password              => (password = "password"),
+                :password              => (password = "Pa55w0rd"),
 }}
 
 get '/user/:id.json' do |id|
