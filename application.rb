@@ -151,6 +151,9 @@ class Application < Sinatra::Base
   get '/authorize' do
     @current_user = env['warden'].user
     session[:state] = params['state'] || session[:state]
+    session[:scope] = params['scope'] || session[:scope]
+    session[:response_type] = params['response_type'] || session[:response_type]
+    session[:redirect_uri] = params['redirect_uri'] || session[:redirect_uri]
 
     unless env['warden'].authenticated?
       puts env['warden']
@@ -158,6 +161,6 @@ class Application < Sinatra::Base
       redirect '/auth/login'
     end
 
-    erb :authorize, :locals => {:username => @current_user.id, :state => session[:state] }
+    erb :authorize, :locals => {:username => @current_user.id, :state => session[:state], :scope => session[:scope], :response_type => session[:response_type], :redirect_uri => session[:redirect_uri] }
   end
 end
